@@ -2,11 +2,12 @@ var module = angular.module('Books', []);
 
 module.factory('Category', function(){
   var result = {
-                elements: ['Angular in action']
+                elements: "Do some stuff here"
                };
   return result;
 });
 
-module.controller('HorizontalList', function($scope, Category){
+module.controller('HorizontalList', function($scope,
+                                             Category){
   $scope.elements = Category.elements;
 });
