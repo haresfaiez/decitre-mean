@@ -9,11 +9,13 @@ describe('Books', function(){
   }));
 
   describe('per category', function(){
-    it('in an horizontal list', function(){
-      var $scope = {};
-      var listBooks = $controller('HorizontalList', { $scope: $scope,
-                                                      Category: fakeCategory });
-      expect($scope.elements).toEqual(fakeCategory.elements);
-    });
-  });
+                it('should be in an horizontal list', function(){
+                     var $scope = {};
+                     var listBooks = $controller('HorizontalList',
+                                                 { $scope:   $scope,
+                                                   Category: fakeCategory });
+
+                     expect($scope.elements).toEqual(fakeCategory.elements);
+                });
+           });
 });
