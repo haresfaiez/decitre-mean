@@ -1,5 +1,3 @@
-angular.module('Decitre', []);
-
 angular.module('Decitre')
        .factory('FetchBooks', function($http){
   var result = function(handle){
