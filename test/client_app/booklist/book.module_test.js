@@ -1,7 +1,7 @@
 describe('Books', function(){
   var $controller;
   var $httpBackend;
-  var category = {books: ['Angular in action', 'Getting MEAN']};
+  var category = [{category: "javascript", books: ['Angular in action', 'Getting MEAN']}];
 
   beforeEach(module('Books'));
 
@@ -12,8 +12,8 @@ describe('Books', function(){
 
   describe('for one category', function(){
                 it('should fetch books of a category', function(){
-                    $httpBackend.when('GET', '/category/1').respond(category);
-                    $httpBackend.expectGET('/category/1');
+                    $httpBackend.when('GET', '/category/books').respond(category);
+                    $httpBackend.expectGET('/category/books');
                     var $scope    = {};
                     var listBooks = $controller('BindCategoryBooks',
                                                 {$scope: $scope});
