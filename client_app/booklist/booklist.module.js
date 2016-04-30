@@ -1,7 +1,7 @@
 angular.module('Books', []);
 
 angular.module('Books')
-       .factory('CategoryBooks', function($http){
+       .factory('FetchBooks', function($http){
   var result = function(categoryId, handle){
                  var target       = '/category/all';
                  var handleResult = function(data, status, headers, config) {
@@ -13,9 +13,10 @@ angular.module('Books')
 });
 
 angular.module('Books')
-       .controller('BindCategoryBooks', function($scope, CategoryBooks){
-  var bind = function(books){
-               $scope.elements = books;
-             };
-  CategoryBooks(1, bind);
+       .controller('BindCategoryBooks', function($scope, FetchBooks){
+  var categoryId = 1;
+  var bind       = function(books){
+                     $scope.elements = books;
+                   };
+  FetchBooks(categoryId, bind);
 });
