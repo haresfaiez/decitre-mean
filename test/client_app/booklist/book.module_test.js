@@ -1,7 +1,7 @@
 describe('Books', function(){
   var $controller;
 
-  beforeEach(angular.mock.module('Books'));
+  beforeEach(module('Books'));
 
   beforeEach(inject(function(_$controller_){
     $controller = _$controller_;
