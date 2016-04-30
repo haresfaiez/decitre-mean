@@ -3,7 +3,7 @@ describe('Books', function(){
   var $httpBackend;
   var category = [{category: "javascript", books: ['Angular in action', 'Getting MEAN']}];
 
-  beforeEach(module('Books'));
+  beforeEach(module('Decitre'));
 
   beforeEach(inject(function(_$controller_, _$httpBackend_){
     $controller  = _$controller_;

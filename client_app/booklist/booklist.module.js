@@ -1,6 +1,6 @@
-angular.module('Books', []);
+angular.module('Decitre', []);
 
-angular.module('Books')
+angular.module('Decitre')
        .factory('FetchBooks', function($http){
   var result = function(handle){
                  var target       = '/category/books';
@@ -12,7 +12,7 @@ angular.module('Books')
   return result;
 });
 
-angular.module('Books')
+angular.module('Decitre')
        .controller('BindCategoryBooks', function($scope, FetchBooks){
   var bind       = function(books){
                      $scope.elements = books;
