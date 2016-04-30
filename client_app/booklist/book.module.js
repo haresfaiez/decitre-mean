@@ -1,13 +1,13 @@
 var module = angular.module('Books', []);
 
-module.factory('Category', function(){
+module.factory('FetchBooksForCategory', function(){
   var result = {
-                elements: "Do some stuff here"
+                books: "Do some stuff here"
                };
   return result;
 });
 
-module.controller('HorizontalList', function($scope,
-                                             Category){
-  $scope.elements = Category.elements;
+module.controller('BookPerCategory', function($scope,
+                                              FetchBooksForCategory){
+  $scope.elements = FetchBooksForCategory.books;
 });

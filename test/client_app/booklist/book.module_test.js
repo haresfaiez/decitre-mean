@@ -1,5 +1,5 @@
 describe('Books', function(){
-  var fakeCategory = {elements: ['Angular in action']};
+  var fakeCategory = {books: ['Angular in action']};
   var $controller;
 
   beforeEach(angular.mock.module('Books'));
@@ -11,11 +11,11 @@ describe('Books', function(){
   describe('per category', function(){
                 it('should be in an horizontal list', function(){
                      var $scope = {};
-                     var listBooks = $controller('HorizontalList',
+                     var listBooks = $controller('BookPerCategory',
                                                  { $scope:   $scope,
-                                                   Category: fakeCategory });
+                                                   FetchBooksForCategory: fakeCategory });
 
-                     expect($scope.elements).toEqual(fakeCategory.elements);
+                     expect($scope.elements).toEqual(fakeCategory.books);
                 });
            });
 });
