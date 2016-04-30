@@ -1,8 +1,8 @@
 angular.module('Books', []);
 
 angular.module('Books')
-       .factory('FetchBooksForCategory', function($http){
-  var result = function(handle){
+       .factory('categoryBooks', function($http){
+  var result = function(categoryId, handle){
                   var target     = '/category/all';
                   var handleData = function(data, status, headers, config) {
                                        handle(data);
@@ -14,8 +14,8 @@ angular.module('Books')
 
 angular.module('Books')
        .controller('BookPerCategory', function($scope,
-                                               FetchBooksForCategory){
-  FetchBooksForCategory(function(books){
+                                               categoryBooks){
+  categoryBooks(1, function(books){
     $scope.elements = books;
   });
 });
