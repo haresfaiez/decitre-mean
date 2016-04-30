@@ -12,8 +12,8 @@ describe('Books', function(){
 
   describe('for one category', function(){
                 it('should fetch books of a category', function(){
-                    $httpBackend.when('GET', '/category/all').respond(category);
-                    $httpBackend.expectGET('/category/all');
+                    $httpBackend.when('GET', '/category/1').respond(category);
+                    $httpBackend.expectGET('/category/1');
                     var $scope    = {};
                     var listBooks = $controller('BindCategoryBooks',
                                                 {$scope: $scope});
