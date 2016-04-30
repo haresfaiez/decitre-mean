@@ -5,13 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./decitre/routes/index');
-var users = require('./decitre/routes/users');
+var routes = require('./server_app/routes/index');
+var users = require('./server_app/routes/users');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'decitre', 'views'));
+app.set('views', path.join(__dirname, 'server_app', 'views'));
 app.set('view engine', 'hjs');
 
 // uncomment after placing your favicon in /public
