@@ -12,8 +12,9 @@ angular.module('Decitre')
 
 angular.module('Decitre')
        .controller('BindCategoryBooks', function($scope, FetchBooks){
+  var mv = this;
   var bind       = function(books){
-                     $scope.elements = books;
+                     mv.elements = books;
                    };
   FetchBooks(bind);
 });
