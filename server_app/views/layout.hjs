@@ -8,6 +8,10 @@
     <h1>{{ title }}</h1>
     <p>Hiii. Welcome to {{ title }}</p>
 
+    <div ng-app="Decitre" ng-controller="BindCategoryBooks">
+        <div ng-bind="elements" />
+    </div>
+
     <script src="/angular/angular.js"></script>
     <script src="/app.js"></script>
     <script src="/booklist/booklist.module.js"></script>
