@@ -8,6 +8,8 @@
     <h1>{{ title }}</h1>
     <p>Hiii. Welcome to {{ title }}</p>
 
-    <script src="/angular/angular.js" />
+    <script src="/angular/angular.js"></script>
+    <script src="/app.js"></script>
+    <script src="/booklist/booklist.module.js"></script>
   </body>
 </html>
