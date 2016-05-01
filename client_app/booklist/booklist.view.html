@@ -1,11 +1,13 @@
 <div ng-repeat="category in categories.elements">
   <div>
-    <div ng-bind="category.category" />
+    {{ category.category }}
   </div>
   ---
   <div>
     <div ng-repeat="book in category.books">
-	<div ng-bind="book.title" />
+      <a href="/book/{{ book._id }}">
+        {{ book.title }}
+      </a>
     </div>
   </div>
   ---
