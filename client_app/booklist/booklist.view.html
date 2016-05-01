@@ -1,1 +1,14 @@
-<div ng-bind="categories.elements" />
+<div ng-repeat="category in categories.elements">
+  <div>
+    <div ng-bind="category.category" />
+  </div>
+  ---
+  <div>
+    <div ng-repeat="book in category.books">
+	<div ng-bind="book" />
+    </div>
+  </div>
+  ---
+  ---
+  ---
+</div>
