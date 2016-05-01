@@ -3,9 +3,9 @@ angular.module('Decitre', ['ngRoute']);
 
 function config ($routeProvider) {
 $routeProvider.when('/', {
-        templateUrl : '../booklist/booklist.view.html',
+        templateUrl : '/booklist/booklist.view.html',
         controller  : 'BindCategoryBooks',
-        controllerAs: 'vm'
+        controllerAs: 'categories'
     }).otherwise({redirectTo: '/'});
 };
 
