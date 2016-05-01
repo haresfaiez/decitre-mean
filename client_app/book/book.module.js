@@ -1,7 +1,7 @@
 angular.module('Decitre')
        .factory('FetchBookById', function($http){
-  var result = function(handle){
-                 var target       = '/category/books';
+  var result = function(bookId, handle){
+                 var target       = '/book/' + bookId;
                  var handleResult = function(response) {
                                       handle(response);
                                     };
@@ -11,10 +11,11 @@ angular.module('Decitre')
 });
 
 angular.module('Decitre')
-       .controller('BindBook', function($scope, FetchBookById){
-  var book = this;
+       .controller('BindBook', function($scope, $routeParams, FetchBookById){
+  var book   = this;
+  var bookId = $routeParams.bookid;
   var bind       = function(result){
                      book.details = result;
                    };
-  FetchBookById(bind);
+  FetchBookById(bookId, bind);
 });
