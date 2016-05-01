@@ -1,15 +1,5 @@
 var mongoose = require('mongoose');
 
-var book = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true
-    },
-    category:{
-        type: mongoose.Schema.ObjectId,
-        ref: 'category'
-    }
-});
 
 var category = new mongoose.Schema({
     title: {
@@ -19,4 +9,15 @@ var category = new mongoose.Schema({
 });
 
 mongoose.model('Category', category);
+
+var book = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    category:{
+        type: mongoose.Schema.ObjectId,
+        ref: 'Category'
+    }
+});
 mongoose.model('Book',     book);
