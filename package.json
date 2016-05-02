@@ -17,6 +17,7 @@
     "less-middleware": "1.0.x",
     "mongoose": "^4.4.14",
     "morgan": "~1.6.1",
+    "request": "^2.72.0",
     "requirejs": "^2.2.0",
     "serve-favicon": "~2.3.0"
   },
@@ -24,6 +25,7 @@
     "angular-mocks": "^1.5.5",
     "chai": "^3.5.0",
     "jasmine-core": "^2.4.1",
+    "jasmine-node": "^1.14.5",
     "karma": "^0.13.22",
     "karma-chai": "^0.1.0",
     "karma-jasmine": "^0.3.8",
