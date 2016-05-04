@@ -1,11 +1,12 @@
 angular.module('Decitre')
        .factory('FetchBookById', function($http){
   var result = function(bookId, handle){
-                 var target       = '/book/' + bookId;
-                 var handleResult = function(response) {
-                                      handle(response);
-                                    };
-                 $http.get(target).success(handleResult);
+                 var target = '/book/' + bookId;
+                 function handleResult(response) {
+                   handle(response);
+                 };
+                 $http.get(target)
+                      .success(handleResult);
                 };
   return result;
 });
