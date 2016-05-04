@@ -1,24 +1,27 @@
 describe('Books', function(){
+  var someCategories = [{category: "javascript", books: ['Angular in action']}];
+
   var $controller;
-  var $httpBackend;
+  var $backend;
 
   beforeEach(module('Decitre'));
 
-  beforeEach(inject(function(_$controller_, _$httpBackend_){
+  beforeEach(inject(function(_$controller_,
+                             _$httpBackend_){
     $controller  = _$controller_;
-    $httpBackend = _$httpBackend_;
+    $backend     = _$httpBackend_;
   }));
 
-  describe('for all categories', function(){
-                it('should be fetched from the backend', function(){
-                    var categories = [{category: "javascript", books: ['Angular in action', 'Getting MEAN']}];
-                    $httpBackend.when('GET', '/category/books').respond(categories);
-                    $httpBackend.expectGET('/category/books');
-                    var BindCategoryBooks = $controller('BindCategoryBooks', {$scope: {}});
+  describe('from all categories', function(){
+    it('should be fetched from the backend', function(){
+      $backend.whenGET('/category/books')
+              .respond(someCategories);
+      $backend.expectGET('/category/books');
+      var controller = $controller('BindCategoryBooks');
 
-                    $httpBackend.flush();
+      $backend.flush();
 
-                    expect(BindCategoryBooks.elements).toEqual(categories);
-                });
-           });
+      expect(controller.elements).toEqual(someCategories);
+    });
+  });
 });
