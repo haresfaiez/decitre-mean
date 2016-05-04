@@ -1,5 +1,5 @@
 describe('Books', function(){
-  var someCategories = [{category: "javascript", books: ['Angular in action']}];
+  const someCategories = [{category: "javascript", books: ['Angular in action']}];
 
   var $controller;
   var $backend;
