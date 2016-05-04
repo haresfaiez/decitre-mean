@@ -13,11 +13,19 @@ angular.module('Decitre')
 });
 
 angular.module('Decitre')
-       .controller('BindCategoryBooks', function(FetchBooks){
+       .controller('BindCategoryBooks', function(FetchBooks, $scope){
   var categories = this;
   function bind(books){
     categories.elements = books;
   };
+
+  function bookSearch(){
+    $scope.search.token = $scope.search.token + '...';
+  }
+
+  $scope.search = {};
+  $scope.search.token = 'token';
+  $scope.search.tokenChange = bookSearch;
 
   FetchBooks(bind);
 });

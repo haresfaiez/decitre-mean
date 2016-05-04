@@ -1,3 +1,9 @@
+<div>
+  <input type="text"
+	 ng-model="search.token"
+	 ng-change="search.tokenChange()"
+	 ng-value="">
+</div>
 <div ng-repeat="category in categories.elements">
   <div>
     {{ category.category }}
