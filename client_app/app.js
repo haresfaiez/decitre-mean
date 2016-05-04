@@ -4,7 +4,7 @@ angular.module('Decitre', ['ngRoute']);
 function config ($routeProvider) {
 $routeProvider.when('/', {
                 templateUrl : '/booklist/booklist.view.html',
-                controller  : 'BindCategoryBooks',
+                controller  : 'BindBooks',
                 controllerAs: 'categories'
             }).when('/book/:bookid', {
                 templateUrl : '/book/book.view.html',

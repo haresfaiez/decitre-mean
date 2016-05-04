@@ -1,13 +1,13 @@
 angular.module('Decitre')
        .factory('FetchBookById', function($http){
-  function result (bookId, handle){
-    var target = '/book/' + bookId;
-    function onHttpSuccess(response){
+  function result (targetId, handle){
+    var target = '/book/' + targetId;
+    function respond(response){
       handle(response);
     };
 
     $http.get(target)
-         .success(onHttpSuccess);
+         .success(respond);
   };
   return result;
 });
@@ -15,11 +15,12 @@ angular.module('Decitre')
 angular.module('Decitre')
        .controller('BindBook', function($routeParams,
                                         FetchBookById){
-  var book   = this;
-  var bookId = $routeParams.bookid;
+  var book     = this;
+  var targetId = $routeParams.bookid;
+
+  FetchBookById(targetId, bind);
+
   function bind(result){
     book.details = result;
   };
-
-  FetchBookById(bookId, bind);
 });
