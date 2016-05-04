@@ -15,7 +15,7 @@ describe('Books', function(){
     var service;
 
     beforeEach(inject(function($injector){
-      service  = $injector.get('FetchBooks');
+      service  = $injector.get('FetchAll');
     }));
 
     it('should be fetched from the backend', function(){
@@ -32,7 +32,7 @@ describe('Books', function(){
 
     it('should be binded to the view', function(){
       var fakeService = function(handle){handle(someCategories);}
-      var controller  = $controller('BindCategoryBooks', {$scope:{}, FetchBooks: fakeService});
+      var controller  = $controller('BindBooks', {$scope:{}, FetchAll: fakeService});
 
       expect(controller.elements).toEqual(someCategories);
     });

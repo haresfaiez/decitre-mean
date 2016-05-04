@@ -21,14 +21,14 @@ describe('Books', function(){
     var scope = {};
 
     beforeEach(inject(function($injector){
-      service = $injector.get('SearchBooks');
+      service = $injector.get('SearchByTitle');
     }));
 
     it('should bind all books when there is no token', function(){
+      var controller  = $controller('BindBooks', {$scope: scope});
       $backend.whenGET('/category/books')
               .respond(allBooks);
       $backend.expectGET('/category/books');
-      var controller  = $controller('BindCategoryBooks', {$scope: scope});
       scope.search.token = '';
       scope.search.tokenChange();
 
@@ -50,16 +50,16 @@ describe('Books', function(){
     });
 
     it('should be empty initially', function(){
-      var controller  = $controller('BindCategoryBooks',
-                                    {$scope: scope, SearchBooks: serviceFake});
+      var controller  = $controller('BindBooks',
+                                    {$scope: scope, SearchByTitle: serviceSpy});
 
       expect(scope.search.token).toEqual('');
     });
 
     it('should be triggered with each token change', function(){
       httpRequestToken = '';
-      var controller  = $controller('BindCategoryBooks',
-                                    {$scope: scope, SearchBooks: serviceSpy});
+      var controller  = $controller('BindBooks',
+                                    {$scope: scope, SearchByTitle: serviceSpy});
       scope.search.token = searchToken;
 
       scope.search.tokenChange();
@@ -72,12 +72,6 @@ describe('Books', function(){
     function serviceSpy(token, handle){
       httpRequestToken = token;
       handle(searchResult);
-    }
-    function serviceFake(token, handle){
-      handle(searchResult);
-    }
-    function fetchServiceFake(handle){
-      handle(allBooks);
     }
   });
 });

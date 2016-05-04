@@ -1,52 +1,53 @@
 angular.module('Decitre')
-       .factory('FetchBooks', function($http){
+       .factory('FetchAll', function($http){
   function result(handle){
     var target = '/category/books';
-    function onHttpSuccess(response){
+    function respond(response){
       handle(response);
     };
 
     $http.get(target)
-         .success(onHttpSuccess);
+         .success(respond);
   };
   return result;
 });
 
 angular.module('Decitre')
-       .factory('SearchBooks', function($http){
-  function result(token, handle){
-    var target = '/search/' + token;
-    function onHttpSuccess(response){
+       .factory('SearchByTitle', function($http){
+  function result(title, handle){
+    var target = '/search/' + title;
+    function respond(response){
       handle(response);
     };
 
     $http.get(target)
-         .success(onHttpSuccess);
+         .success(respond);
   };
   return result;
 });
 
 angular.module('Decitre')
-       .controller('BindCategoryBooks', function(FetchBooks,
-                                                 SearchBooks,
-                                                 $scope){
-  function bookSearch(){
-    function bind(books){
-      categories.elements = books;
-    };
-    var token = $scope.search.token;
-
-    if (token == '')
-      FetchBooks(bind);
-    else
-      SearchBooks(token, bind);
-  }
+       .controller('BindBooks', function(FetchAll, SearchByTitle, $scope){
 
   var categories = this;
+  $scope.search  = {token:       '',
+                    tokenChange: search};
 
-  $scope.search = {};
-  $scope.search.token = '';
-  $scope.search.tokenChange = bookSearch;
+  search();
 
-  bookSearch();
+  function search(){
+    var input = $scope.search.token;
+    fetch(input);
+  }
+
+  function fetch(token){
+    if (token == '')
+      FetchAll(bind);
+    else
+      SearchByTitle(token, bind);
+  }
+
+  function bind(response){
+    categories.elements = response;
+  };
 });
