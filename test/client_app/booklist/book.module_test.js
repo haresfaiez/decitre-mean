@@ -12,16 +12,16 @@ describe('Books', function(){
   }));
 
   describe('search', function(){
-    const searchResult = [{title: 'Angular in action'}];
+    const searchResult = [{category: "javascript", books: ['Angular in action']}];
     var $searchBooks;
 
     beforeEach(inject(function($injector){
       $searchBooks = $injector.get('SearchBooks');
     }));
 
-    it('should fetch books by name with each change', function(){
+    it('should search for books by name afer each change', function(){
       var searchToken = 'Angular';
-      var searchURL = '/search/' + searchToken;
+      var searchURL   = '/search/' + searchToken;
       $backend.whenGET(searchURL)
               .respond(searchResult);
       $backend.expectGET(searchURL);
@@ -31,6 +31,32 @@ describe('Books', function(){
       $backend.flush();
 
       expect(handle).toHaveBeenCalledWith(searchResult);
+    });
+
+    it('should be empty initially', function(){
+      var fakeService = function(token, handle){handle(searchResult);}
+      var scope = {};
+      var controller  = $controller('BindCategoryBooks',
+                                    {$scope: scope, SearchBooks: fakeService});
+
+      expect(scope.search.token).toEqual('');
+    });
+
+    it('should be triggered with each token change', function(){
+      function serviceSpy(token, handle){
+        httpRequestToken = token;
+        handle(searchResult);
+      }
+      var httpRequestToken = '';
+      var scope = {};
+      var controller  = $controller('BindCategoryBooks',
+                                    {$scope: scope, SearchBooks: serviceSpy});
+      var searchToken = 'Angular';
+      scope.search.token = searchToken;
+      scope.search.tokenChange();
+
+      expect(httpRequestToken).toEqual(searchToken);
+      expect(controller.elements).toEqual(searchResult);
     });
   });
 
