@@ -30,22 +30,23 @@ angular.module('Decitre')
        .controller('BindCategoryBooks', function(FetchBooks,
                                                  SearchBooks,
                                                  $scope){
-  var categories = this;
-  function bind(books){
-    categories.elements = books;
-  };
-
   function bookSearch(){
+    function bind(books){
+      categories.elements = books;
+    };
     var token = $scope.search.token;
+
     if (token == '')
       FetchBooks(bind);
     else
       SearchBooks(token, bind);
   }
 
+  var categories = this;
+
   $scope.search = {};
   $scope.search.token = '';
   $scope.search.tokenChange = bookSearch;
 
-  FetchBooks(bind);
+  bookSearch();
 });
