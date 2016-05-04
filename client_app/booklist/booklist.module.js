@@ -13,6 +13,20 @@ angular.module('Decitre')
 });
 
 angular.module('Decitre')
+       .factory('SearchBooks', function($http){
+  function result(token, handle){
+    var target = '/search/' + token;
+    function onHttpSuccess(response){
+      handle(response);
+    };
+
+    $http.get(target)
+         .success(onHttpSuccess);
+  };
+  return result;
+});
+
+angular.module('Decitre')
        .controller('BindCategoryBooks', function(FetchBooks, $scope){
   var categories = this;
   function bind(books){
