@@ -1,8 +1,8 @@
-var mongoose       = require('mongoose');
+var mongoose = require('mongoose');
 
 var book     = mongoose.model('Book');
 
-var bookById = function(req, res){
+var search = function(req, res){
   var bookId = req.params.bookid;
   book.findById(bookId).populate('category').exec(function(err, book){
           res.status(200);
@@ -10,4 +10,4 @@ var bookById = function(req, res){
       });
 }
 
-module.exports.details = bookById;
+module.exports.details = search;
