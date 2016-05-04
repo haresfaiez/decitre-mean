@@ -1,4 +1,6 @@
 describe('Books', function(){
+  const someCategories = [{category: "javascript", books: ['Angular in action']}];
+
   var $controller;
   var $backend;
 
@@ -10,7 +12,6 @@ describe('Books', function(){
   }));
 
   describe('from all categories', function(){
-    const someCategories = [{category: "javascript", books: ['Angular in action']}];
 
     var service;
 
@@ -31,10 +32,13 @@ describe('Books', function(){
     });
 
     it('should be binded to the view', function(){
-      var fakeService = function(handle){handle(someCategories);}
       var controller  = $controller('BindBooks', {$scope:{}, FetchAll: fakeService});
 
       expect(controller.elements).toEqual(someCategories);
     });
+
+    function fakeService(handle){
+      handle(someCategories);
+    }
   });
 });
