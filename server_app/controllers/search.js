@@ -3,7 +3,7 @@ var mongoose       = require('mongoose');
 var book     = mongoose.model('Book');
 var category = mongoose.model('Category');
 
-var search = function(req, res){
+var jsonResponse = function(req, res){
   var result        = [];
   var categoryCount = 0;
   var categorySize  = 0;
@@ -55,4 +55,4 @@ var search = function(req, res){
   }
 }
 
-module.exports.byname = search;
+module.exports.byname = jsonResponse;

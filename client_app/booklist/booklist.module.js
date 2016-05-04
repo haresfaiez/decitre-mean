@@ -36,7 +36,11 @@ angular.module('Decitre')
   };
 
   function bookSearch(){
-    SearchBooks($scope.search.token, bind);
+    var token = $scope.search.token;
+    if (token == '')
+      FetchBooks(bind);
+    else
+      SearchBooks(token, bind);
   }
 
   $scope.search = {};
