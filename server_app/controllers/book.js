@@ -1,13 +1,16 @@
 var mongoose = require('mongoose');
 
-var book     = mongoose.model('Book');
+var book = mongoose.model('Book');
 
-var search = function(req, res){
+function retrieve(req, res){
   var bookId = req.params.bookid;
-  book.findById(bookId).populate('category').exec(function(err, book){
-          res.status(200);
-          res.json(book);
-      });
+
+  book.findById(bookId).populate('category').exec(sendResponse);
+
+  function sendResponse(err, book){
+    res.status(200);
+    res.json(book);
+  }
 }
 
-module.exports.details = search;
+module.exports.details = retrieve;

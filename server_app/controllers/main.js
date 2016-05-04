@@ -1,5 +1,5 @@
-var renderLayout = function(req, res){
-                     res.render('layout', { title: 'Decitre.fr' });
-                   }
+function layout (req, res){
+  res.render('layout', { title: 'Decitre.fr' });
+}
 
-module.exports.angular = renderLayout;
+module.exports.angular = layout;
