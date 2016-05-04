@@ -1,22 +1,25 @@
 angular.module('Decitre')
        .factory('FetchBookById', function($http){
-  var result = function(bookId, handle){
-                 var target = '/book/' + bookId;
-                 function handleResult(response) {
-                   handle(response);
-                 };
-                 $http.get(target)
-                      .success(handleResult);
-                };
+  function result (bookId, handle){
+    var target = '/book/' + bookId;
+    function onHttpSuccess(response){
+      handle(response);
+    };
+
+    $http.get(target)
+         .success(onHttpSuccess);
+  };
   return result;
 });
 
 angular.module('Decitre')
-       .controller('BindBook', function($scope, $routeParams, FetchBookById){
+       .controller('BindBook', function($routeParams,
+                                        FetchBookById){
   var book   = this;
   var bookId = $routeParams.bookid;
-  var bind       = function(result){
-                     book.details = result;
-                   };
+  function bind(result){
+    book.details = result;
+  };
+
   FetchBookById(bookId, bind);
 });

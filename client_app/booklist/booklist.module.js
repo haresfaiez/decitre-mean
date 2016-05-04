@@ -2,12 +2,12 @@ angular.module('Decitre')
        .factory('FetchBooks', function($http){
   function result(handle){
     var target = '/category/books';
-    function handleResult (response){
+    function onHttpSuccess(response){
       handle(response);
     };
 
     $http.get(target)
-         .success(handleResult);
+         .success(onHttpSuccess);
   };
   return result;
 });
