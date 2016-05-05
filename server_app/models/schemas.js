@@ -7,7 +7,6 @@ var category = new mongoose.Schema({
         required: true
     }
 });
-
 mongoose.model('Category', category);
 
 var book = new mongoose.Schema({
@@ -21,3 +20,12 @@ var book = new mongoose.Schema({
     }
 });
 mongoose.model('Book',     book);
+
+var passportLocalMongoose = require('passport-local-mongoose');
+var account = new mongoose.Schema({
+    username: String,
+    password: String
+});
+account.plugin(passportLocalMongoose);
+
+mongoose.model('Account', account);

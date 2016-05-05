@@ -9,7 +9,7 @@ var database     = require('./server_app/storage/database');
 var schemas      = require('./server_app/models/schemas');
 
 var passport     = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var auth         = require('./server_app/security/authentication');
 
 var routes       = require('./server_app/routes/index');
 var users        = require('./server_app/routes/users');
@@ -37,42 +37,6 @@ app.use(express.static(path.join(__dirname, 'client_app')));
 
 app.use('/', routes);
 app.use('/users', users);
-
-var Account = require('./server_app/models/account.js');
-passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
-
-
-routes.get('/register', function(req, res) {
-  res.render('register', { });
-});
-
-routes.post('/register', function(req, res) {
-  Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
-    if (err) {
-      return res.render('register', { account : account });
-    }
-
-    passport.authenticate('local')(req, res, function () {
-      res.redirect('/');
-    });
-  });
-});
-
-routes.get('/login', function(req, res) {
-  res.render('login', { user : req.user });
-});
-
-routes.post('/login', passport.authenticate('local'), function(req, res) {
-  res.redirect('/');
-});
-
-routes.get('/logout', function(req, res) {
-  req.logout();
-  res.redirect('/');
-});
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
