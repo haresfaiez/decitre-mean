@@ -7,12 +7,17 @@
   <body>
     <h1>{{ title }}</h1>
     <p>Hiii. Welcome to {{ title }}</p>
-    <a href="/login"> login </a>
-    <a href="/register"> register </a>
+    {{#user}}
+      LOGGED
+    {{/user}}
+    {{^user}}
+      <a href="/login"> login </a>
+      <a href="/register"> register </a>
+    {{/user}}
     <div ng-app="Decitre">
-        <a href="#/cart">cart</a>
-	<div ng-view>
-	</div>
+      <a href="#/cart">cart</a>
+      <div ng-view>
+      </div>
     </div>
 
     <script src="/angular/angular.js"></script>
