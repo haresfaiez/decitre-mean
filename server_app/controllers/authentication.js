@@ -31,8 +31,8 @@ function logout(req, res) {
   res.redirect('/');
 }
 
-module.exports.login    = login;
-module.exports.logout   = logout;
-module.exports.register = register;
+module.exports.login        = login;
+module.exports.logout       = logout;
+module.exports.register     = register;
+module.exports.loginView    = loginView;
 module.exports.registerView = registerView;
-module.exports.loginView = loginView;

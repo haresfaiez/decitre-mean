@@ -1,11 +1,11 @@
-var passport      = require('passport');
-var express = require('express');
-var router  = express.Router();
+var passport = require('passport');
+var express  = require('express');
+var router   = express.Router();
 
-var main     = require('../controllers/main');
-var category = require('../controllers/category');
-var book     = require('../controllers/book');
-var search   = require('../controllers/search');
+var main           = require('../controllers/main');
+var category       = require('../controllers/category');
+var book           = require('../controllers/book');
+var search         = require('../controllers/search');
 var authentication = require('../controllers/authentication');
 
 router.get('/', main.angular);
