@@ -1,11 +1,20 @@
 angular.module('Decitre')
        .factory('CartArticles', function(){
+  var cart = {
+    articles: []
+  };
+
   function articles(handle){
-    var articles = [];
-    handle(articles);
+    handle(cart.articles);
   }
+
+  function store(article){
+    cart.articles = cart.articles.concat([article]);
+  }
+
   return {
-    articles: articles
+    articles: articles,
+    store:    store
   };
 });
 

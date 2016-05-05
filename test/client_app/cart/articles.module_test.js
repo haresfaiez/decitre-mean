@@ -27,6 +27,13 @@ describe('Cart articles', function(){
     });
 
     it('should store articles', function(){
+      var handle = jasmine.createSpy();
+      service.store(articles[0]);
+      service.store(articles[1]);
+
+      service.articles(handle);
+
+      expect(handle).toHaveBeenCalledWith(articles);
     });
   });
 
