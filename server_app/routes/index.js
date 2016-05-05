@@ -5,6 +5,7 @@ var main     = require('../controllers/main');
 var category = require('../controllers/category');
 var book     = require('../controllers/book');
 var search   = require('../controllers/search');
+var authentication = require('../controllers/authentication');
 
 router.get('/', main.angular);
 
@@ -14,26 +15,14 @@ router.get('/book/:bookid',   book.details);
 router.get('/search/:token',  search.byname);
 
 
-var mongoose      = require('mongoose');
 var passport      = require('passport');
-var account       = mongoose.model('Account');
 
 
 router.get('/register', function(req, res) {
   res.render('register', { });
 });
 
-router.post('/register', function(req, res) {
-  account.register(new account({ username : req.body.username }), req.body.password, function(err, account) {
-    if (err) {
-      return res.render('register', { account : account });
-    }
-
-    passport.authenticate('local')(req, res, function () {
-      res.redirect('/');
-    });
-  });
-});
+router.post('/register', authentication.register);
 
 router.get('/login', function(req, res) {
   res.render('login', { user : req.user });
