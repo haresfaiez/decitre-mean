@@ -17,5 +17,6 @@
     <script src="/app.js"></script>
     <script src="/booklist/booklist.module.js"></script>
     <script src="/book/book.module.js"></script>
+    <script src="/cart/articles.module.js"></script>
   </body>
 </html>
