@@ -8,8 +8,4 @@ var search   = require('../controllers/search');
 
 router.get('/', main.angular);
 
-router.get('/category/books', category.all);
-router.get('/book/:bookid',   book.details);
-router.get('/search/:token',  search.byname);
-
 module.exports = router;
