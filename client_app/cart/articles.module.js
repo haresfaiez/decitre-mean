@@ -1,18 +1,19 @@
 angular.module('Decitre')
-       .factory('FetchCartArticles', function($http){
-  function result(handle){
-    const articles = [{category: "javascript", books: ['Angular in action']},
-                      {category: "css",        books: ['Css in action']}];
+       .factory('CartArticles', function(){
+  function articles(handle){
+    var articles = [];
     handle(articles);
   }
-  return result;
+  return {
+    articles: articles
+  };
 });
 
 angular.module('Decitre')
-       .controller('CartArticles', function(FetchCartArticles){
+       .controller('BindCartArticles', function(CartArticles){
   var articles = this;
 
-  FetchCartArticles(bind);
+  CartArticles.articles(bind);
 
   function bind(result){
     articles.list = result;

@@ -13,10 +13,32 @@ describe('Cart articles', function(){
                $backend     = _$httpBackend_;
              }));
 
-  it('should be binded in a list', function(){
-    var serviceFake = function(handle){handle(articles);};
-    var controller  = $controller('CartArticles',
-                                  {FetchCartArticles: serviceFake});
-    expect(controller.list).toEqual(articles);
+  describe('Service', function(){
+    beforeEach(inject(function($injector){
+                 service = $injector.get('CartArticles');
+               }));
+
+    it('should be initially empty', function(){
+      var handle = jasmine.createSpy();
+
+      service.articles(handle);
+
+      expect(handle).toHaveBeenCalledWith([]);
+    });
+
+    it('should store articles', function(){
+    });
+  });
+
+  describe('Controller', function(){
+    it('should bind articles to the view', function(){
+      var serviceFake = {};
+      serviceFake.articles = function(handle){handle(articles);};
+
+      var controller  = $controller('BindCartArticles',
+                                    {CartArticles: serviceFake});
+
+      expect(controller.list).toEqual(articles);
+    });
   });
 });
