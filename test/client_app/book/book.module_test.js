@@ -15,9 +15,9 @@ describe('Book', function(){
 
   describe('Controller', function(){
     it('should add a book to the cart', function(){
-      var fetchFake = function(_, handle){handle(angularBook);};
-      var cartFake = {};
-      cartFake.store = jasmine.createSpy();
+      var fetchFake   = function(_, handle){handle(angularBook);};
+      var cartFake    = {};
+      cartFake.store  = jasmine.createSpy();
       var controller  = $controller('BindBook', {Cart:          cartFake,
                                                  FetchBookById: fetchFake});
 

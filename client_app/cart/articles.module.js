@@ -13,8 +13,8 @@ angular.module('Decitre')
   }
 
   return {
-    articles: articles,
-    store:    store
+    store:    store,
+    articles: articles
   };
 });
 
