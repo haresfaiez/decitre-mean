@@ -13,12 +13,18 @@ angular.module('Decitre')
 });
 
 angular.module('Decitre')
-       .controller('BindBook', function($routeParams,
-                                        FetchBookById){
+       .controller('BindBook', function($scope,
+                                        $routeParams,
+                                        FetchBookById,
+                                        Cart){
   var book     = this;
   var targetId = $routeParams.bookid;
 
   FetchBookById(targetId, bind);
+
+  book.addToCart = function(){
+    FetchBookById(targetId, Cart.store);
+  }
 
   function bind(result){
     book.details = result;

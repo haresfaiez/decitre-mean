@@ -1,4 +1,4 @@
-describe('Book Details', function(){
+describe('Book', function(){
   const angularBook    = {_id: '0000', title: 'Angular 4'};
   const angularBookURL = '/book/' + angularBook._id;
 
@@ -13,13 +13,32 @@ describe('Book Details', function(){
     $backend     = _$httpBackend_;
   }));
 
-  describe('fetch by by id', function(){
-    it('should be binded to the view', function(){
+  describe('Controller', function(){
+    it('should add a book to the cart', function(){
+      var fetchFake = function(_, handle){handle(angularBook);};
+
+      var cartFake = {};
+
+      cartFake.store = jasmine.createSpy();
+      var scope = {};
+
+      var controller  = $controller('BindBook', {$scope:        scope,
+                                                 Cart:          cartFake,
+                                                 FetchBookById: fetchFake});
+
+      controller.addToCart();
+
+
+      expect(cartFake.store).toHaveBeenCalledWith(angularBook);
+    });
+
+    it('should Fetch and bind hte details to the view', function(){
       $backend.whenGET(angularBookURL)
               .respond(angularBook);
       $backend.expectGET(angularBookURL);
       var controller  = $controller('BindBook',
-                                    {$routeParams: {bookid: angularBook._id}});
+                                    {$scope: {},
+                                     $routeParams: {bookid: angularBook._id}});
 
       $backend.flush();
 
