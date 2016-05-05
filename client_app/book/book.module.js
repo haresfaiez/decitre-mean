@@ -13,8 +13,7 @@ angular.module('Decitre')
 });
 
 angular.module('Decitre')
-       .controller('BindBook', function($scope,
-                                        $routeParams,
+       .controller('BindBook', function($routeParams,
                                         FetchBookById,
                                         Cart){
   var book     = this;

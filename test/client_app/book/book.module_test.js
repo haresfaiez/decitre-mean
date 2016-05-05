@@ -20,14 +20,11 @@ describe('Book', function(){
       var cartFake = {};
 
       cartFake.store = jasmine.createSpy();
-      var scope = {};
 
-      var controller  = $controller('BindBook', {$scope:        scope,
-                                                 Cart:          cartFake,
+      var controller  = $controller('BindBook', {Cart:          cartFake,
                                                  FetchBookById: fetchFake});
 
       controller.addToCart();
-
 
       expect(cartFake.store).toHaveBeenCalledWith(angularBook);
     });
@@ -37,8 +34,7 @@ describe('Book', function(){
               .respond(angularBook);
       $backend.expectGET(angularBookURL);
       var controller  = $controller('BindBook',
-                                    {$scope: {},
-                                     $routeParams: {bookid: angularBook._id}});
+                                    {$routeParams: {bookid: angularBook._id}});
 
       $backend.flush();
 
