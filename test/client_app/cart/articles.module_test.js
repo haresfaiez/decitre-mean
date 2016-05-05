@@ -15,7 +15,7 @@ describe('Cart articles', function(){
 
   describe('Service', function(){
     beforeEach(inject(function($injector){
-                 service = $injector.get('CartArticles');
+                 service = $injector.get('Cart');
                }));
 
     it('should be initially empty', function(){
@@ -43,7 +43,7 @@ describe('Cart articles', function(){
       serviceFake.articles = function(handle){handle(articles);};
 
       var controller  = $controller('BindCartArticles',
-                                    {CartArticles: serviceFake});
+                                    {Cart: serviceFake});
 
       expect(controller.list).toEqual(articles);
     });

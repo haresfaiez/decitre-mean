@@ -1,5 +1,5 @@
 angular.module('Decitre')
-       .factory('CartArticles', function(){
+       .factory('Cart', function(){
   var cart = {
     articles: []
   };
@@ -19,10 +19,10 @@ angular.module('Decitre')
 });
 
 angular.module('Decitre')
-       .controller('BindCartArticles', function(CartArticles){
+       .controller('BindCartArticles', function(Cart){
   var articles = this;
 
-  CartArticles.articles(bind);
+  Cart.articles(bind);
 
   function bind(result){
     articles.list = result;
