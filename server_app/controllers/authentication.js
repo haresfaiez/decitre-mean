@@ -14,5 +14,25 @@ function register(req, res) {
   });
 }
 
+function registerView(req, res) {
+  res.render('register', { });
+}
 
+function loginView(req, res) {
+  res.render('login', { user : req.user });
+}
+
+function login(req, res) {
+  res.redirect('/');
+}
+
+function logout(req, res) {
+  req.logout();
+  res.redirect('/');
+}
+
+module.exports.login    = login;
+module.exports.logout   = logout;
 module.exports.register = register;
+module.exports.registerView = registerView;
+module.exports.loginView = loginView;
