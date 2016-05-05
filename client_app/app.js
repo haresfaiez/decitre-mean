@@ -11,7 +11,7 @@ function config ($routeProvider) {
     controller  : 'BindBook',
     controllerAs: 'book'
   }).when('/cart', {
-    templateUrl: '/cart/articles.view.htm',
+    templateUrl: '/cart/articles.view.html',
     controller: 'BindCartArticles',
     controllerAs: 'articles'
  }).otherwise({redirectTo: '/'});
