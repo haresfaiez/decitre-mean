@@ -1,1 +1,13 @@
-body{padding:50px;font:14px "Lucida Grande",Helvetica,Arial,sans-serif}a{color:#00B7FF}
+.transparent-icon {
+    background: none;
+    border: none;
+}
+
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+}
+
+a {
+    color: #00B7FF
+}
