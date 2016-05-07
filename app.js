@@ -5,7 +5,7 @@ var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 
-var database     = require('./server_app/storage/database');
+var database     = require('./server_app/persistence/database_setup');
 var schemas      = require('./server_app/models/schemas');
 
 var passport     = require('passport');
