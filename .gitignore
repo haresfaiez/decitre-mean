@@ -5,6 +5,9 @@ node_modules
 *#
 .#*
 
+#auto generated
+public/stylesheets/style.css
+
 #bower
 bower_components/
 
