@@ -1,30 +1,333 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>{{ title }}</h1>
-    <p>Hiii. Welcome to {{ title }}</p>
-    {{#user}}
-      LOGGED
-    {{/user}}
-    {{^user}}
-      <a href="/login"> login </a>
-      <a href="/register"> register </a>
-    {{/user}}
-    <div ng-app="Decitre">
-      <a href="#/cart">cart</a>
-      <div ng-view>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body ng-app="Decitre">
+  <div class="container">
+    <header class="row">
+      <div class="col-sm-2">
+        <img src="http://b.decitre.di-static.com/skin/frontend/decitre/default/images/logo.png">
+      </div>
+      <div class="col-sm-10">
+        <div class="row">
+          <nav class="nav">
+            <a href="#">Mon compte</a>
+            <span>
+              |
+            </span>
+            <a href="#">Mes listes de souhaits</a>
+            <span>
+              |
+            </span>
+            <a href="#">Aide en ligne</a>
+            <span>
+              |
+            </span>
+            <a href="#">Nos librairies</a>
+            <span>
+              |
+            </span>
+            <a href="#">Espace pro</a>
+            <span>
+              |
+            </span>
+            <a href="#/cart">Panier des achats</a>
+          </nav>
+        </div>
       </div>
     </div>
+  </header>
+  <section>
+    <nav class="navbar navbar-default">
+      <div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="#">
+              LIVRES
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              PAPETERIE
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              LOISIR & JEUX
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              DVD & BLU-RAY
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              HIGH TECH & DESIGN
+            </a>
+          </li>
+          <li class="active">
+            <a href="#">
+              LIVRES NEUFS A PRIX CASSES
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              BLOG
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div>
+      Bienvenue sur decitre.fr : découvrez nos livres, ebooks et produits culturels 
+    </div>
+    <div>
+      <div class="row">
+        <aside class="col-sm-3">
+          <ul class="list-unstyled">
+            <li class="nav-header">LIVRES</li>
+            <li><a href="#">Littérature</a></li>
+            <li><a href="#">Bien-être & Vie pratique</a></li>
+            <li><a href="#"><a href="#">Loisirs, nature & voyages</a></li>
+            <li><a href="#">Arts, société & sciences humaines</a></li>
+            <li><a href="#">Jeunesse</a></li>
+            <li><a href="#">Bandes dessinées & Humour</a></li>
+            <li><a href="#">Scolaire & Pédagogie</a></li>
+            <li><a href="#">Entreprise, emploi, droit & économie</a></li>
+            <li><a href="#">Médecine, sciences, techniques</a></li>
+            <li><a href="#">Langues & livres en VO</a></li>
+          </ul>
+          <ul class="list-unstyled">
+            <li class="nav-header">E-books</li>
+            <li><a href="#">Littérature</a></li>
+            <li><a href="#">Bien-être & Vie pratique</a></li>
+            <li><a href="#">Loisirs, nature & voyages</a></li>
+            <li><a href="#">Arts, société & sciences humaines</a></li>
+            <li><a href="#">Jeunesse</a></li>
+            <li><a href="#">Bandes dessinées & Humour</a></li>
+            <li><a href="#">Scolaire & Pédagogie</a></li>
+            <li><a href="#">Entreprise, emploi, droit & économie</a></li>
+            <li><a href="#">Médecine, sciences, techniques</a></li>
+            <li><a href="#">Langues & livres en VO</a></li>
+          </ul>
+          <ul class="list-unstyled">
+            <li class="nav-header">Supports de lecture</li>
+            <li><a href="#">Liseuses</a></li>
+            <li><a href="#">Accessoires</a></li>
+          </ul>
+          <ul class="list-unstyled">
+            <li class="nav-header">Papeterie</li>
+            <li><a href="#">Cahiers, feuilles & bloc-notes</a></li>
+            <li><a href="#">Ecriture</a></li>
+            <li><a href="#">Papier & correspondance</a></li>
+            <li><a href="#">Classement</a></li>
+            <li><a href="#">Fournitures</a></li>
+            <li><a href="#">Coloriage & dessin scolaire</a></li>
+            <li><a href="#">Calculatrices</a></li>
+            <li><a href="#">Cadeaux</a></li>
+            <li><a href="#">Agendas</a></li>
+            <li><a href="#">Maroquinerie scolaire</a></li>
+          </ul>
+          <ul class="list-unstyled">
+            <li class="nav-header">Loisirs et jeux</li>
+            <li><a href="#">Jeux de société-notes</a></li>
+            <li><a href="#">Jeux de réflexion</a></li>
+            <li><a href="#">Jeux traditionnels</a></li>
+            <li><a href="#">Jeux de cartes</a></li>
+            <li><a href="#">Loisirs enfant</a></li>
+            <li><a href="#">Jeux de construction</a></li>
+          </ul>
+          <ul class="list-unstyled">
+            <li class="nav-header">High tech</li>
+            <li><a href="#">Accessoires audio</a></li>
+            <li><a href="#">Accessoires téléphonie et Tablettes</a></li>
+            <li><a href="#">Périphériques et Connectique</a></li>
+          </ul>
 
-    <script src="/angular/angular.js"></script>
-    <script src="/angular-route/angular-route.js"></script>
-    <script src="/app.js"></script>
-    <script src="/booklist/booklist.module.js"></script>
-    <script src="/book/book.module.js"></script>
-    <script src="/cart/articles.module.js"></script>
-  </body>
+
+
+          <ul class="list-unstyled">
+            <li class="nav-header">Design</li>
+            <li><a href="#">Univers cuisine</a></li>
+            <li><a href="#">Fournitures bureau</a></li>
+            <li><a href="#">Univers lecture</a></li>
+            <li><a href="#">Accessoires</a></li>
+            <li><a href="#">Lego architecture</a></li>
+          </ul>
+
+
+
+          <ul class="list-unstyled">
+            <li class="nav-header">Presse</li>
+            <li><a href="#">Magazines féminins</a></li>
+            <li><a href="#">Cuisine et Gastronomie</a></li>
+            <li><a href="#">Actualités</a></li>
+            <li><a href="#">Télévision</a></li>
+          </ul>
+        </aside>
+        <div class="col-sm-8">
+          <div>
+            <div class="content-title">
+              <h3> Les derniers coups de coeur de vos libraires</h3>
+            </div>
+            <div>
+              {{#user}}
+              LOGGED
+              {{/user}}
+              {{^user}}
+              <a href="/login"> login </a>
+              <a href="/register"> register </a>
+              {{/user}}
+              <div>
+                <div ng-view>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <img src="http://b.decitre.di-static.com/skin/frontend/decitre/default/images/logo.png">
+        </div>
+        <div class="col-sm-4">
+          <div class="nl-title">
+            <i class="glyphicon glyphicon-envelope"></i>
+            Newsletter
+          </div>
+          <div class="nl-desc">
+            Inscrivez-vous pour découvrir toutes nos offres !
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div>
+            <input type="email" placeholder="Votre adresse e-mail">
+            <button type="submit" class="nl-submit">Je m'inscris</button>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <ul class="list-inline">
+            <li>
+              <a href="http://www.facebook.com/Decitre">
+              </a>
+            </li>
+            <li>
+              <a href="http://twitter.com/Decitre/">
+              </a>
+            </li>
+            <li>
+              <a href="http://plus.google.com/106714258416212305778/posts">
+              </a>
+            </li>
+            <li>
+              <a href="http://pinterest.com/decitre/">
+              </a>
+            </li>
+            <li>
+              <a href="http://www.decitre.fr/blog">
+              </a>
+            </li>
+            <li>
+              <a href="http://www.youtube.com/user/DecitreEvents">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <i class="glyphicon glyphicon-info-sign"></i>
+          <p>
+            TOUTE L'AIDE
+          </p>
+        </div>
+        <div class="col-sm-2">
+          <i class="glyphicon glyphicon-open-file"></i>
+          <p>
+            LES LIBRAIRIES DECITRE
+          </p>
+        </div>
+        <div class="col-sm-2">
+          <i class="glyphicon glyphicon-calendar"></i>
+          <p>
+            ÉVÉNEMENTS
+          </p>
+        </div>
+        <div class="col-sm-5">
+          <div class="srv-client">
+            SERVICE CLIENT
+          </div>
+          <div class="ser-client__tmp">
+            <i class="glyphicon glyphicon-user"></i>
+            <p>
+              Du lundi au samedi de 8h30 à 19h30
+              01 76 49 48 00 ou par email
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="title">MIEUX NOUS CONNAITRE</div>
+          <ul class="list-unstyled">
+            <li><a href="#">Qui sommes-nous ?</a></li>
+            <li><a href="#">Services &amp; avantages</a></li>
+            <li><a href="#">Nous rejoindre</a></li>
+            <li><a href="#">Decitrepro.fr</a></li>
+            <li><a href="#">Site institutionnel</a></li>
+            <li><a href="#">Outil de recherche bibliographique</a></li>
+            <li><a href="#">Fonds Decitre</a></li>
+            <li><a href="#">Partenaires</a></li>
+            <li><a href="#">Affiliation</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <div class="title">BESOIN D'AIDE ?</div>
+          <ul class="list-unstyled">
+            <li><a href="#">Recherche &amp; navigation</a></li>
+            <li><a href="#">Comment passer commande ?</a></li>
+            <li><a href="#">Modes de paiement</a></li>
+            <li><a href="#">Infos livraison</a></li>
+            <li><a href="#">Retours &amp; échanges</a></li>
+            <li><a href="#">Compte client</a></li>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Contact</a></li>
+
+          </ul>
+        </div>
+        <div class="col-sm-4">
+          <div class="title">AUTOUR DU NUMERIQUE</div>
+          <ul class="list-unstyled">
+            <li><a href="#">Découvrir la lecture numérique</a></li>
+            <li><a href="#">Télécharger et lire un e-book</a></li>
+            <li><a href="#">Adobe Digital Editions</a></li>
+            <li><a href="#">Dépannage</a></li>
+            <li><a href="#">Application de lecture</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <ul class="list-inline col-md-offset-4">
+          <li><a class="middle-item" href="#">Informations légales</a></li>
+          <li><a class="middle-item" href="#">C.G.V.</a></li>
+          <li><a class="no-border" href="#">Confidentialité</a></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="/angular/angular.js"></script>
+<script src="/angular-route/angular-route.js"></script>
+<script src="/app.js"></script>
+<script src="/booklist/booklist.module.js"></script>
+<script src="/book/book.module.js"></script>
+<script src="/cart/articles.module.js"></script>
 </html>
+

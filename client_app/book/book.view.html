@@ -1,6 +1,18 @@
-<div ng-click="book.addToCart()">
-  Add to cart
+<h1>
+	Details du livre
+</h1>
+<div class="produit-elm">
+	<img src="http://a.decitre.di-static.com/img/120x160/astrid-desbordes-un-amour-de-petite-soeur/9782226324658FS.gif">
 </div>
-I am
-{{ book.details }}
-
+<div>
+{{ book.details.title }}
+</div>
+<div class="produit-auth">
+	_
+</div>
+<div class="produit-price">
+	_
+</div>
+<button class="btn btn-danger" ng-click="book.addToCart()">
+	Commander
+</button>

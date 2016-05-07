@@ -1,22 +1,40 @@
-<div>
-  <input type="text"
-	 ng-model="search.token"
-	 ng-change="search.tokenChange()"
-	 ng-value="">
+<div class="input-group stylish-input-group">
+  <input type="text" ng-model="search.token"
+  ng-change="search.tokenChange()"
+  ng-value="" class="form-control"  placeholder="Search" >
+  <span class="input-group-addon">
+    <button type="submit" class="transparent-icon">
+      <span class="glyphicon glyphicon-search"></span>
+    </button>  
+  </span>
 </div>
+
 <div ng-repeat="category in categories.elements">
-  <div>
-    {{ category.category }}
-  </div>
-  ---
-  <div>
-    <div ng-repeat="book in category.books">
-      <a href="#/book/{{ book._id }}">
-        {{ book.title }}
-      </a>
+  <div class="produit-list">
+    <div class="desc">
+      <strong>
+        {{ category.category }}
+      </strong>
     </div>
+    <ul class="list-inline">
+      <li ng-repeat="book in category.books">
+        <div class="produit-elm">
+          <a href="#/book/{{ book._id }}" class="produit">
+            <img src="http://a.decitre.di-static.com/img/120x160/astrid-desbordes-un-amour-de-petite-soeur/9782226324658FS.gif">
+          </a>
+        </div>
+        <div>
+          <a href="#/book/{{ book._id }}">
+            {{ book.title }}
+          </a>
+        </div>
+        <div class="produit-auth">
+          _
+        </div>
+        <div class="produit-price">
+          _
+        </div>
+      </li>
+    </ul>
   </div>
-  ---
-  ---
-  ---
 </div>
