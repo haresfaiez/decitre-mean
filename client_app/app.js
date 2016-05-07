@@ -14,6 +14,10 @@ function config ($routeProvider) {
     templateUrl: '/cart/articles.view.html',
     controller: 'BindCartArticles',
     controllerAs: 'articles'
+ }).when('/login', {
+    templateUrl: '/authentication/login.view.html'
+ }).when('/register', {
+    templateUrl: '/authentication/register.view.html'
  }).otherwise({redirectTo: '/'});
 };
 

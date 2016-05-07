@@ -15,23 +15,15 @@
       <div class="col-sm-10">
         <div class="row">
           <nav class="nav">
-            <a href="#">Mon compte</a>
+            <a href="/#/">Index</a>
             <span>
               |
             </span>
-            <a href="#">Mes listes de souhaits</a>
+            <a href="/#/login">Log in</a>
             <span>
               |
             </span>
-            <a href="#">Aide en ligne</a>
-            <span>
-              |
-            </span>
-            <a href="#">Nos librairies</a>
-            <span>
-              |
-            </span>
-            <a href="#">Espace pro</a>
+            <a href="/#/register">Inscription</a>
             <span>
               |
             </span>
@@ -176,13 +168,6 @@
               <h3> Les derniers coups de coeur de vos libraires</h3>
             </div>
             <div>
-              {{#user}}
-              LOGGED
-              {{/user}}
-              {{^user}}
-              <a href="/login"> login </a>
-              <a href="/register"> register </a>
-              {{/user}}
               <div>
                 <div ng-view>
                 </div>
