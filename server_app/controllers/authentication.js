@@ -5,21 +5,14 @@ var account       = mongoose.model('Account');
 function register(req, res) {
   account.register(new account({ username : req.body.username }), req.body.password, function(err, account) {
     if (err) {
-      return res.render('register', { account : account });
+      res.redirect('/#/register');
+      return;
     }
 
     passport.authenticate('local')(req, res, function () {
       res.redirect('/');
     });
   });
-}
-
-function registerView(req, res) {
-  res.render('register', { });
-}
-
-function loginView(req, res) {
-  res.render('login', { user : req.user });
 }
 
 function login(req, res) {
@@ -34,5 +27,3 @@ function logout(req, res) {
 module.exports.login        = login;
 module.exports.logout       = logout;
 module.exports.register     = register;
-module.exports.loginView    = loginView;
-module.exports.registerView = registerView;

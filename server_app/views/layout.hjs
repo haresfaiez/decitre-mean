@@ -19,15 +19,19 @@
             <span>
               |
             </span>
-            <a href="/#/login">Log in</a>
-            <span>
-              |
-            </span>
             <a href="/#/register">Inscription</a>
             <span>
               |
             </span>
+            <a href="/#/login">Log in</a>
+            <span>
+              |
+            </span>
             <a href="#/cart">Panier des achats</a>
+            <span>
+              |
+            </span>
+            <a href="/#/logout">Logout</a>
           </nav>
         </div>
       </div>

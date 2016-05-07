@@ -17,9 +17,6 @@ router.get('/search/:token',  search.byname);
 router.post('/register', authentication.register);
 router.post('/login',    passport.authenticate('local'), authentication.login);
 
-router.get('/login',    authentication.loginView);
 router.get ('/logout',  authentication.logout);
-router.get('/register', authentication.registerView);
-
 
 module.exports = router;
